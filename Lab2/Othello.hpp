@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include <vector>
 #include <utility>
+#include <cmath>
 #include "Player.hpp"
 using namespace std;
 

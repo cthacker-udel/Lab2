@@ -475,9 +475,33 @@ void Othello::ckwin(){
 void Othello::compplacepiece(Player p){
 
 	vector<pair<int,pair<int,int>>> coords;
-	for(int i = 0; i < size; i++){
-		for(int j = 0; j < size; j++){
-
+	for(int d = 1; d < 9; d++){
+		for(int i = 0; i < size; i++){
+			for(int j = 0; j < size; j++){
+				int numFlip = countandflippieces(i,j,p.name,false,d);
+				pair<int,int> coordPair;
+				coordPair.first = i;
+				coordPair.second = j;
+				pair<int,pair<int,int>> coordDictionary;
+				coordDictionary.first = numFlip;
+				coordDictionary.second = coordPair;
+				coords.push_back(coordDictionary);
+			}
+		}
+	}
+	int max = 0;
+	for(int i = 0; i < coords.size(); i++){
+		max = fmax(max,coords.at(i).first);
+	}
+	if(max == 0){
+		// player forfeits turn
+	}
+	else{
+		vector<pair<int,pair<int,int>>> validCoords;
+		for(int i = 0; i < coords.size(); i++){
+			if(coords.at(i).first == max){
+				validCoords.push_back(coords.at(i));
+			}
 		}
 	}
 
