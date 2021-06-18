@@ -6,10 +6,47 @@
  */
 
 #include "Othello.hpp"
-#include<iostream>
-#include<stdlib.h>
-#include<string.h>
-using namespace std;
+
+Othello::Othello(){
+
+	Player player1("computer",'B');
+	Player player2("computer",'O');
+	numPlayer = 0;
+	size = 8;
+
+}
+
+Othello::Othello(string playerName, char pieceColor){
+
+	char computerPiece;
+	if(tolower(pieceColor) != 'b'){
+		computerPiece = 'B';
+	}
+	else if(tolower(pieceColor) != 'o'){
+		computerPiece = 'O';
+	}
+
+	Player player2(playerName,pieceColor);
+	numPlayer = 1;
+	size = 8;
+
+}
+
+Othello::Othello(string player1Name, char player1PieceColor, string player2Name, char player2PieceColor){
+
+	Player player1(player1Name,player1PieceColor);
+	Player player2(player2Name,player2PieceColor);
+	numPlayer = 2;
+	size = 8;
+
+}
+
+
+
+
+
+
+/*
 
 const char blank = '';
 const char pieceB = 'B';
@@ -64,3 +101,5 @@ void Othello::playGame(){
 		ckwin();
 
 	}
+
+*/
