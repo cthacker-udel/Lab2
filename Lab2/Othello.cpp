@@ -37,8 +37,10 @@ Othello::Othello(string playerName, char pieceColor){
 
 Othello::Othello(string player1Name, char player1PieceColor, string player2Name, char player2PieceColor){
 
-	Player player1(player1Name,player1PieceColor);
-	Player player2(player2Name,player2PieceColor);
+	Player iPlayer1(player1Name,player1PieceColor);
+	Player iPlayer2(player2Name,player2PieceColor);
+	player1 = iPlayer1;
+	player2 = iPlayer2;
 	numPlayer = 2;
 	size = 8;
 
