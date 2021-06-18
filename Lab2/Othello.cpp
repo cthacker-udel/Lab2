@@ -5,7 +5,7 @@
  *      Author: Treah
  */
 
-#include "Othello.h"
+#include "Othello.hpp"
 #include<iostream>
 #include<stdlib.h>
 #include<string.h>

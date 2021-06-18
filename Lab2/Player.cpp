@@ -2,14 +2,8 @@
  * Player.cpp
  *
  *  Created on: Jun 17, 2021
- *      Author: Treah
+ *      Author: Treah & Cameron
  */
 
-#include "Player.h"
-#include <iostream>
-#include <string>
-using namespace std;
+#include "Player.hpp"
 
-char name = '';
-const char black = 'B';
-const char white = 'W';
