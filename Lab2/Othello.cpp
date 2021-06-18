@@ -106,11 +106,11 @@ void Othello::printmat(){
 		}
 }
 
-void Othello::placepiece(string playername, char colorPiece){
+void Othello::placepiece(Player p){
 
+	int x;
+	int y;
 	while(1){
-		int x;
-		int y;
 		cout << "Enter an x coordinate between 0 and " << size-1 << ":";
 		cin >> x;
 		cout << "Enter an y coordinate between 0 and " << size-1 << ":";
@@ -130,6 +130,12 @@ void Othello::placepiece(string playername, char colorPiece){
 		else{
 			break;
 		}
+	}
+	board[x][y] = p.piece;
+	for(int i = 1; i < 9; i++){
+		int j = countandflippieces(x,y,p.name,false,i);
+		string direction = i == 1? "up": i == 2? "down": i == 3? "right": i == 4? "right-down diag": i == 5? "down": i == 6? "left-down diag": i == 7? "left": i == 8? "left-up diag": "neither";
+		cout << "The number of flips found in the " << direction << " direction are : " << j << endl;
 	}
 
 }
@@ -164,10 +170,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					return count;
 				}
 				if(board[i][y] == ' '){
-					return count;
+					return 0;
 				}
 			}
-			return count;
+			return 0;
 		}
 		else{
 			for(int i = x-1; i >= 0; i--){
@@ -178,10 +184,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					return count;
 				}
 				if(board[i][y] == ' '){
-					return count;
+					return 0;
 				}
 			}
-			return count;
+			return 0;
 		}
 	}
 	else if(direction == 3){
@@ -195,10 +201,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					return count;
 				}
 				if(board[x][i] == ' '){
-					return count;
+					return 0;
 				}
 			}
-			return count;
+			return 0;
 		}
 		else{
 			for(int i = y+1; i < size; i++){
@@ -209,10 +215,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					return count;
 				}
 				if(board[x][i] == ' '){
-					return count;
+					return 0;
 				}
 			}
-			return count;
+			return 0;
 		}
 	}
 	else if(direction == 5){
@@ -227,10 +233,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					return count;
 				}
 				if(board[i][y] == ' '){
-					return count;
+					return 0;
 				}
 			}
-			return count;
+			return 0;
 		}
 		else{
 			for(int i = x+1; i < size; i++){
@@ -241,10 +247,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					return count;
 				}
 				if(board[i][y] == ' '){
-					return count;
+					return 0;
 				}
 			}
-			return count;
+			return 0;
 		}
 	}
 	else if(direction == 7){
@@ -259,10 +265,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					return count;
 				}
 				if(board[x][i] == ' '){
-					return count;
+					return 0;
 				}
 			}
-			return count;
+			return 0;
 		}
 		else{
 			for(int i = y-1; i >= 0; i--){
@@ -273,10 +279,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					return count;
 				}
 				if(board[x][i] == ' '){
-					return count;
+					return 0;
 				}
 			}
-			return count;
+			return 0;
 		}
 	}
 	else if(direction == 2){
@@ -290,10 +296,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					return count;
 				}
 				if(board[i][j] == ' '){
-					return count;
+					return 0;
 				}
 			}
-			return count;
+			return 0;
 		}
 		else{
 			for(int i = x-1, j = y+1; i >= 0 && j < size; j++, i--){
@@ -304,26 +310,26 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					return count;
 				}
 				if(board[i][j] == ' '){
-					return count;
+					return 0;
 				}
 			}
-			return count;
+			return 0;
 		}
 	}
 	else if(direction == 4){
 		if(player == player1.name){
 			for(int i = x+1, j = y+1; i < size && j < size; j++, i++){
 				if(board[i][j] == player2.piece){
-					count++:
+					count++;
 				}
 				if(board[i][j] == player1.piece){
 					return count;
 				}
 				if(board[i][j] == ' '){
-					return count;
+					return 0;
 				}
 			}
-			return count;
+			return 0;
 		}
 		else{
 			for(int i = x+1, j = y+1; i < size && j < size; j++, i++){
@@ -334,10 +340,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					return count;
 				}
 				if(board[i][j] == ' '){
-					return count;
+					return 0;
 				}
 			}
-			return count;
+			return 0;
 		}
 	}
 	else if(direction == 6){
@@ -350,10 +356,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					return count;
 				}
 				if(board[i][j] == ' '){
-					return count;
+					return 0;
 				}
 			}
-			return count;
+			return 0;
 		}
 		else{
 			for(int i = x+1, j = y-1; i < size && j >= 0; j--, i++){
@@ -364,10 +370,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					return count;
 				}
 				if(board[i][j] == ' '){
-					return count;
+					return 0;
 				}
 			}
-			return count;
+			return 0;
 		}
 	}
 	else if(direction == 8){
@@ -380,10 +386,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					return count;
 				}
 				if(board[i][j] == ' '){
-					return count;
+					return 0;
 				}
 			}
-			return count;
+			return 0;
 		}
 		else{
 			for(int i = x-1, j = y-1; i >= 0 && j >= 0; j--, i--){
@@ -394,10 +400,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					return count;
 				}
 				if(board[i][j] == ' '){
-					return count;
+					return 0;
 				}
 			}
-			return count;
+			return 0;
 		}
 	}
 
@@ -420,7 +426,69 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 
 }
 
+void Othello::ckwin(){
 
+	int player1Count = 0;
+	int player2Count = 0;
+
+	for(int i = 0; i < size; i++){
+		for(int j = 0; j < size; j++){
+			if(board[i][j] == player1.piece){
+				player1Count++;
+			}
+			else if(board[i][j] == player2.piece){
+				player2Count++;
+			}
+		}
+	}
+	string result = player1Count > player2Count? "Player 1 won with: " + to_string(player1Count) + " versus " + to_string(player2Count) : player2Count > player1Count? "Player 2 won with: " + to_string(player2Count) + " versus " + to_string(player1Count): "Tie";
+	cout << result;
+
+
+
+}
+
+
+
+void Othello::playGame(){
+
+	makemat();
+	printmat();
+	bool play = true;
+	int fullsqrs = 0;
+	Player p = player1;
+	bool whichp = true;
+	bool turn = true;
+
+	if(rand() % 2 == 0){ // p1 plays first
+		p = player2;
+		turn = false;
+		whichp = false;
+	}
+
+	while((play) && (fullsqrs < 64)){
+		cout << endl << p.name << " (" << p.piece << ") choose your square: " << endl;
+		if((numPlayer == 2) || ((numPlayer == 1) && turn)){
+			placepiece(p);
+		}
+		else if((numPlayer == 0) || ((numPlayer == 1) && (turn == false))){
+			//compplacepiece(p);
+		}
+		turn = !turn;
+		printmat();
+		if(whichp){
+			p = player2;
+			whichp = false;
+		}
+		else{
+			p = player1;
+			whichp = true;
+		}
+		fullsqrs += 1;
+	}
+	ckwin();
+
+}
 
 
 
