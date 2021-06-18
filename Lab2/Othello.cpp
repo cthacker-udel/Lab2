@@ -474,7 +474,7 @@ void Othello::ckwin(){
 
 void Othello::compplacepiece(Player p){
 
-	vector<pair<int,pair<int,int>>> coords;
+	vector<pair<pair<int,int>,pair<int,int>>> coords;
 	for(int d = 1; d < 9; d++){
 		for(int i = 0; i < size; i++){
 			for(int j = 0; j < size; j++){
@@ -482,8 +482,12 @@ void Othello::compplacepiece(Player p){
 				pair<int,int> coordPair;
 				coordPair.first = i;
 				coordPair.second = j;
-				pair<int,pair<int,int>> coordDictionary;
-				coordDictionary.first = numFlip;
+				pair<pair<int,int>,pair<int,int>> coordDictionary;
+				coordDictionary.first.first = d;
+				coordDictionary.first.second = numFlip;
+
+				// [(<direction,numFlipped>,<x,y>)],[(<direction,numFlipped>,<x,y>)]
+
 				coordDictionary.second = coordPair;
 				coords.push_back(coordDictionary);
 			}
@@ -491,18 +495,20 @@ void Othello::compplacepiece(Player p){
 	}
 	int max = 0;
 	for(int i = 0; i < coords.size(); i++){
-		max = fmax(max,coords.at(i).first);
+		max = fmax(max,coords.at(i).first.second);
 	}
 	if(max == 0){
 		// player forfeits turn
 	}
 	else{
-		vector<pair<int,pair<int,int>>> validCoords;
+		vector<pair<pair<int,int>,pair<int,int>>> validCoords;
 		for(int i = 0; i < coords.size(); i++){
 			if(coords.at(i).first == max){
 				validCoords.push_back(coords.at(i));
 			}
 		}
+		int randomCoord = rand() % validCoords.size();
+		countandflippieces(validCoords.at(randomCoord).second.first,validCoords.at(randomCoord).second.second,p.name,true,validCoords.at(randomCoord).first.first);
 	}
 
 }
