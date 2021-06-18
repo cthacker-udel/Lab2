@@ -2,6 +2,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include <ctype.h>
+#include <vector>
+#include <pair>
 #include "Player.hpp"
 using namespace std;
 

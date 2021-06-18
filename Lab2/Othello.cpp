@@ -134,7 +134,7 @@ void Othello::placepiece(Player p){
 	board[x][y] = p.piece;
 	for(int i = 1; i < 9; i++){
 		int j = countandflippieces(x,y,p.name,false,i);
-		string direction = i == 1? "up": i == 2? "down": i == 3? "right": i == 4? "right-down diag": i == 5? "down": i == 6? "left-down diag": i == 7? "left": i == 8? "left-up diag": "neither";
+		string direction = i == 1? "up": i == 2? "right-up diag": i == 3? "right": i == 4? "right-down diag": i == 5? "down": i == 6? "left-down diag": i == 7? "left": i == 8? "left-up diag": "neither";
 		cout << "The number of flips found in the " << direction << " direction are : " << j << endl;
 	}
 
@@ -156,6 +156,13 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 	 *
 	 */
 
+	//TODO : Tre - implement flipPieces
+	/*
+	 *
+	 * flipPieces - boolean if true, turn all opposite player pieces to current player piece
+	 *
+	 */
+
 	int count = 0;
 
 	if(direction == 1){
@@ -165,6 +172,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			for(int i = x-1; i >= 0; i--){
 				if(board[i][y] == player2.piece){
 					count++;
+					// add in a statement that if flipPieces is true, then change board[i][y] = player1.piece, flip the opposing player piece to current player piece
 				}
 				if(board[i][y] == player1.piece){
 					return count;
@@ -179,6 +187,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			for(int i = x-1; i >= 0; i--){
 				if(board[i][y] == player1.piece){
 					count++;
+					// add statement
 				}
 				if(board[i][y] == player2.piece){
 					return count;
@@ -196,6 +205,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			for(int i = y+1; i < size; i++){
 				if(board[x][i] == player2.piece){
 					count++;
+					// add statement
 				}
 				if(board[x][i] == player1.piece){
 					return count;
@@ -210,6 +220,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			for(int i = y+1; i < size; i++){
 				if(board[x][i] == player1.piece){
 					count++;
+					// add statement
 				}
 				if(board[x][i] == player2.piece){
 					return count;
@@ -228,6 +239,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			for(int i = x+1; i < size; i++){
 				if(board[i][y] == player2.piece){
 					count++;
+					// add statement
 				}
 				if(board[i][y] == player1.piece){
 					return count;
@@ -242,6 +254,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			for(int i = x+1; i < size; i++){
 				if(board[i][y] == player1.piece){
 					count++;
+					// add statement
 				}
 				if(board[i][y] == player2.piece){
 					return count;
@@ -260,6 +273,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			for(int i = y-1; i >= 0; i--){
 				if(board[x][i] == player2.piece){
 					count++;
+					// add statement
 				}
 				if(board[x][i] == player1.piece){
 					return count;
@@ -274,6 +288,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			for(int i = y-1; i >= 0; i--){
 				if(board[x][i] == player1.piece){
 					count++;
+					// add statement
 				}
 				if(board[x][i] == player2.piece){
 					return count;
@@ -291,6 +306,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			for(int i = x-1,j = y+1; i >= 0 && j < size; j++, i--){
 				if(board[i][j] == player2.piece){
 					count++;
+					// add statement
 				}
 				if(board[i][j] == player1.piece){
 					return count;
@@ -305,6 +321,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			for(int i = x-1, j = y+1; i >= 0 && j < size; j++, i--){
 				if(board[i][j] == player1.piece){
 					count++;
+					// add statement
 				}
 				if(board[i][j] == player2.piece){
 					return count;
@@ -321,6 +338,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			for(int i = x+1, j = y+1; i < size && j < size; j++, i++){
 				if(board[i][j] == player2.piece){
 					count++;
+					// add statement
 				}
 				if(board[i][j] == player1.piece){
 					return count;
@@ -335,6 +353,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			for(int i = x+1, j = y+1; i < size && j < size; j++, i++){
 				if(board[i][j] == player1.piece){
 					count++;
+					// add statement
 				}
 				if(board[i][j] == player2.piece){
 					return count;
@@ -351,6 +370,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			for(int i = x+1, j = y-1; i < size && j >= 0; j--, i++){
 				if(board[i][j] == player2.piece){
 					count++;
+					// add statement
 				}
 				if(board[i][j] == player1.piece){
 					return count;
@@ -365,6 +385,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			for(int i = x+1, j = y-1; i < size && j >= 0; j--, i++){
 				if(board[i][j] == player1.piece){
 					count++;
+					// add statement
 				}
 				if(board[i][j] == player2.piece){
 					return count;
@@ -381,6 +402,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			for(int i = x-1, j = y-1; i >= 0 && j >= 0; j--, i--){
 				if(board[i][j] == player2.piece){
 					count++;
+					// add statement
 				}
 				if(board[i][j] == player1.piece){
 					return count;
@@ -395,6 +417,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			for(int i = x-1, j = y-1; i >= 0 && j >= 0; j--, i--){
 				if(board[i][j] == player1.piece){
 					count++;
+					// add statement
 				}
 				if(board[i][j] == player2.piece){
 					return count;
