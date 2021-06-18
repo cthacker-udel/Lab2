@@ -26,8 +26,10 @@ Othello::Othello(string playerName, char pieceColor){
 		computerPiece = 'O';
 	}
 
-	Player player1("computer",computerPiece);
-	Player player2(playerName,pieceColor);
+	Player player1Instance("computer",computerPiece);
+	Player player2Instance(playerName,pieceColor);
+	player1 = player1Instance;
+	player2 = player2Instance;
 	numPlayer = 1;
 	size = 8;
 
@@ -45,21 +47,26 @@ Othello::Othello(string player1Name, char player1PieceColor, string player2Name,
 void Othello::makemat(){
 
 	int rMiddle = size / 2;
-	int lMiddle = size / 2;
+	int lMiddle = (size / 2)-1;
 
 	for(int i = 0; i < size; i++){
-		for(int j = 0; j < size; i++){
+		for(int j = 0; j < size; j++){
+			//cout << "R middle = " << rMiddle << "\nL middle = " << lMiddle << "\nI = " << i << "\nJ = " << j << "\n\n-----";
 			if(i == lMiddle && j == lMiddle){
-				board[i][j] = player1.piece;
+				cout << "\nEntered first if" << endl;
+				board[i][j] = player2.piece;
 			}
 			else if(i == rMiddle && j == lMiddle){
-				board[i][j] = player2.piece;
+				cout << "entered second if" << endl;
+				board[i][j] = player1.piece;
 			}
 			else if(i == lMiddle && j == rMiddle){
-				board[i][j] = player2.piece;
+				cout << "entered third if" << endl;
+				board[i][j] = player1.piece;
 			}
 			else if(i == rMiddle && j == rMiddle){
-				board[i][j] = player1.piece;
+				cout << "entered fourth if" << endl;
+				board[i][j] = player2.piece;
 			}
 			else{
 				board[i][j] = ' ';
@@ -83,16 +90,18 @@ void Othello::printmat(){
 	}
 	cout << size-1 << endl;
 	int j = 0;
-	for(int i = 0; i < size; i++){
-		cout << i << "\t";
-		for(int i = 0; i < size; i++){
-			for(j = 0; j < size-1; j++){
-				cout << board[i][j] << "\t";
+		for(int x = 0; x < size; x++){
+			cout << x << "\t";
+			for(j = 0; j < size; j++){
+				if(board[x][j] == ' '){
+					cout << '_' << "\t";
+				}
+				else{
+					cout << board[x][j] << "\t";
+				}
 			}
-			cout << board[i][j] << endl;
+			cout << endl;
 		}
-	}
-
 }
 
 
