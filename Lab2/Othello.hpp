@@ -26,5 +26,7 @@ public:
 
 	void printmat();
 
+	void placepiece(string,char);
+
 
 };

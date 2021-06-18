@@ -106,6 +106,34 @@ void Othello::printmat(){
 		}
 }
 
+void Othello::placepiece(string playername, char colorPiece){
+
+	while(1){
+		int x;
+		int y;
+		cout << "Enter an x coordinate between 0 and " << size-1 << ":";
+		cin >> x;
+		cout << "Enter an y coordinate between 0 and " << size-1 << ":";
+		cin >> y;
+		if(x < 0 || y < 0){
+			cout << "Enter valid coordinates" << endl;
+			continue;
+		}
+		else if(x > size-1 || y > size-1){
+			cout << "Enter valid coordinates" << endl;
+			continue;
+		}
+		else if(board[x][y] != ' '){
+			cout << "Piece already on board square" << endl;
+			continue;
+		}
+		else{
+			break;
+		}
+	}
+
+}
+
 
 
 
