@@ -14,5 +14,10 @@ class Player{
 	string name;
 	char piece;
 
+public:
+
+	Player();
+
+	Player(string,char);
 
 };
