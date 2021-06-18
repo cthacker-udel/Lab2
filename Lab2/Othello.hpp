@@ -28,5 +28,9 @@ public:
 
 	void placepiece(string,char);
 
+	int countandflippieces(int,int,string,bool,int);
+
+	void ckwin();
+
 
 };

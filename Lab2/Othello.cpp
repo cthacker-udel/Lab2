@@ -135,6 +135,294 @@ void Othello::placepiece(string playername, char colorPiece){
 }
 
 
+int Othello::countandflippieces(int x, int y, string player, bool flipPieces, int direction){
+
+	/*
+	 * Directions:
+	 * 	1) up
+	 * 	2) right-up diag
+	 * 	3) right
+	 * 	4) right-down diag
+	 * 	5) down
+	 * 	6) left-down diag
+	 * 	7) left
+	 * 	8) left-up diag
+	 *
+	 */
+
+	int count = 0;
+
+	if(direction == 1){
+		// rows = number -> 0
+		// columns = same
+		if(player == player1.name){
+			for(int i = x-1; i >= 0; i--){
+				if(board[i][y] == player2.piece){
+					count++;
+				}
+				if(board[i][y] == player1.piece){
+					return count;
+				}
+				if(board[i][y] == ' '){
+					return count;
+				}
+			}
+			return count;
+		}
+		else{
+			for(int i = x-1; i >= 0; i--){
+				if(board[i][y] == player1.piece){
+					count++;
+				}
+				if(board[i][y] == player2.piece){
+					return count;
+				}
+				if(board[i][y] == ' '){
+					return count;
+				}
+			}
+			return count;
+		}
+	}
+	else if(direction == 3){
+		// column = increment -> < size
+		if(player == player1.name){
+			for(int i = y+1; i < size; i++){
+				if(board[x][i] == player2.piece){
+					count++;
+				}
+				if(board[x][i] == player1.piece){
+					return count;
+				}
+				if(board[x][i] == ' '){
+					return count;
+				}
+			}
+			return count;
+		}
+		else{
+			for(int i = y+1; i < size; i++){
+				if(board[x][i] == player1.piece){
+					count++;
+				}
+				if(board[x][i] == player2.piece){
+					return count;
+				}
+				if(board[x][i] == ' '){
+					return count;
+				}
+			}
+			return count;
+		}
+	}
+	else if(direction == 5){
+		// column = same
+		// row = increment
+		if(player == player1.name){
+			for(int i = x+1; i < size; i++){
+				if(board[i][y] == player2.piece){
+					count++;
+				}
+				if(board[i][y] == player1.piece){
+					return count;
+				}
+				if(board[i][y] == ' '){
+					return count;
+				}
+			}
+			return count;
+		}
+		else{
+			for(int i = x+1; i < size; i++){
+				if(board[i][y] == player1.piece){
+					count++;
+				}
+				if(board[i][y] == player2.piece){
+					return count;
+				}
+				if(board[i][y] == ' '){
+					return count;
+				}
+			}
+			return count;
+		}
+	}
+	else if(direction == 7){
+		// column - decrement
+		// row - same
+		if(player == player1.name){
+			for(int i = y-1; i >= 0; i--){
+				if(board[x][i] == player2.piece){
+					count++;
+				}
+				if(board[x][i] == player1.piece){
+					return count;
+				}
+				if(board[x][i] == ' '){
+					return count;
+				}
+			}
+			return count;
+		}
+		else{
+			for(int i = y-1; i >= 0; i--){
+				if(board[x][i] == player1.piece){
+					count++;
+				}
+				if(board[x][i] == player2.piece){
+					return count;
+				}
+				if(board[x][i] == ' '){
+					return count;
+				}
+			}
+			return count;
+		}
+	}
+	else if(direction == 2){
+		// space ahead is row-1, column+1, column bounds < size, row >= 0
+		if(player == player1.name){
+			for(int i = x-1,j = y+1; i >= 0 && j < size; j++, i--){
+				if(board[i][j] == player2.piece){
+					count++;
+				}
+				if(board[i][j] == player1.piece){
+					return count;
+				}
+				if(board[i][j] == ' '){
+					return count;
+				}
+			}
+			return count;
+		}
+		else{
+			for(int i = x-1, j = y+1; i >= 0 && j < size; j++, i--){
+				if(board[i][j] == player1.piece){
+					count++;
+				}
+				if(board[i][j] == player2.piece){
+					return count;
+				}
+				if(board[i][j] == ' '){
+					return count;
+				}
+			}
+			return count;
+		}
+	}
+	else if(direction == 4){
+		if(player == player1.name){
+			for(int i = x+1, j = y+1; i < size && j < size; j++, i++){
+				if(board[i][j] == player2.piece){
+					count++:
+				}
+				if(board[i][j] == player1.piece){
+					return count;
+				}
+				if(board[i][j] == ' '){
+					return count;
+				}
+			}
+			return count;
+		}
+		else{
+			for(int i = x+1, j = y+1; i < size && j < size; j++, i++){
+				if(board[i][j] == player1.piece){
+					count++;
+				}
+				if(board[i][j] == player2.piece){
+					return count;
+				}
+				if(board[i][j] == ' '){
+					return count;
+				}
+			}
+			return count;
+		}
+	}
+	else if(direction == 6){
+		if(player == player1.name){
+			for(int i = x+1, j = y-1; i < size && j >= 0; j--, i++){
+				if(board[i][j] == player2.piece){
+					count++;
+				}
+				if(board[i][j] == player1.piece){
+					return count;
+				}
+				if(board[i][j] == ' '){
+					return count;
+				}
+			}
+			return count;
+		}
+		else{
+			for(int i = x+1, j = y-1; i < size && j >= 0; j--, i++){
+				if(board[i][j] == player1.piece){
+					count++;
+				}
+				if(board[i][j] == player2.piece){
+					return count;
+				}
+				if(board[i][j] == ' '){
+					return count;
+				}
+			}
+			return count;
+		}
+	}
+	else if(direction == 8){
+		if(player == player1.name){
+			for(int i = x-1, j = y-1; i >= 0 && j >= 0; j--, i--){
+				if(board[i][j] == player2.piece){
+					count++;
+				}
+				if(board[i][j] == player1.piece){
+					return count;
+				}
+				if(board[i][j] == ' '){
+					return count;
+				}
+			}
+			return count;
+		}
+		else{
+			for(int i = x-1, j = y-1; i >= 0 && j >= 0; j--, i--){
+				if(board[i][j] == player1.piece){
+					count++;
+				}
+				if(board[i][j] == player2.piece){
+					return count;
+				}
+				if(board[i][j] == ' '){
+					return count;
+				}
+			}
+			return count;
+		}
+	}
+
+	/*
+		 * Directions:
+		 * 	1) up ------> check
+		 * 	2) right-up diag -----> check
+		 * 	3) right ------> check
+		 * 	4) right-down diag ----> check
+		 * 	5) down ------> check
+		 * 	6) left-down diag ----> check
+		 * 	7) left -----> check
+		 * 	8) left-up diag
+		 *
+		 */
+
+
+	return 0;
+
+
+}
+
+
+
+
 
 
 
