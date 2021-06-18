@@ -2,7 +2,7 @@
  * Othello.cpp
  *
  *  Created on: Jun 17, 2021
- *      Author: Treah
+ *      Author: Treah & Cameron
  */
 
 #include "Othello.hpp"
