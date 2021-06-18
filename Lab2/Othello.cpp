@@ -49,7 +49,19 @@ void Othello::makemat(){
 	for(int i = 0; i < size; i++){
 		for(int j = 0; j < size; i++){
 			if(i == lMiddle && j == lMiddle){
-				board[i][j] =
+				board[i][j] = player1.piece;
+			}
+			else if(i == rMiddle && j == lMiddle){
+				board[i][j] = player2.piece;
+			}
+			else if(i == lMiddle && j == rMiddle){
+				board[i][j] = player2.piece;
+			}
+			else if(i == rMiddle && j == rMiddle){
+				board[i][j] = player1.piece;
+			}
+			else{
+				board[i][j] = ' ';
 			}
 		}
 	}
