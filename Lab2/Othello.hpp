@@ -24,5 +24,7 @@ public:
 
 	void makemat();
 
+	void printmat();
+
 
 };

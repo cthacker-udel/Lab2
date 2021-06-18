@@ -26,6 +26,7 @@ Othello::Othello(string playerName, char pieceColor){
 		computerPiece = 'O';
 	}
 
+	Player player1("computer",computerPiece);
 	Player player2(playerName,pieceColor);
 	numPlayer = 1;
 	size = 8;
@@ -66,6 +67,31 @@ void Othello::makemat(){
 		}
 	}
 
+}
+
+void Othello::printmat(){
+
+	/*
+	 *
+	 * Adding top layer of print
+	 *
+	 */
+
+	cout << "\t";
+	for(int i = 0; i < size-1; i++){
+		cout << i << "\t";
+	}
+	cout << size-1 << endl;
+	int j = 0;
+	for(int i = 0; i < size; i++){
+		cout << i << "\t";
+		for(int i = 0; i < size; i++){
+			for(j = 0; j < size-1; j++){
+				cout << board[i][j] << "\t";
+			}
+			cout << board[i][j] << endl;
+		}
+	}
 
 }
 
