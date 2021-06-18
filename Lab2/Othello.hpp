@@ -22,5 +22,7 @@ public:
 
 	Othello(string str1, char c, string str2, char c2);
 
+	void makemat();
+
 
 };

@@ -41,6 +41,22 @@ Othello::Othello(string player1Name, char player1PieceColor, string player2Name,
 
 }
 
+void Othello::makemat(){
+
+	int rMiddle = size / 2;
+	int lMiddle = size / 2;
+
+	for(int i = 0; i < size; i++){
+		for(int j = 0; j < size; i++){
+			if(i == lMiddle && j == lMiddle){
+				board[i][j] =
+			}
+		}
+	}
+
+
+}
+
 
 
 
