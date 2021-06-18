@@ -36,5 +36,7 @@ public:
 
 	void playGame();
 
+	void compplacepiece(Player);
+
 
 };

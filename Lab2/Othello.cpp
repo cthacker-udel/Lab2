@@ -472,6 +472,18 @@ void Othello::ckwin(){
 }
 
 
+void Othello::compplacepiece(Player p){
+
+	vector<pair<int,pair<int,int>>> coords;
+	for(int i = 0; i < size; i++){
+		for(int j = 0; j < size; j++){
+
+		}
+	}
+
+}
+
+
 
 void Othello::playGame(){
 
