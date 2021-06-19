@@ -195,10 +195,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					}
 					// add in a statement that if flipPieces is true, then change board[i][y] = player1.piece, flip the opposing player piece to current player piece
 				}
-				if(board[i][y] == player1.piece){
+				else if(board[i][y] == player1.piece){
 					return count;
 				}
-				if(board[i][y] == ' '){
+				else if(board[i][y] == ' '){
 					return 0;
 				}
 			}
@@ -216,10 +216,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 						board[i][y] = player2.piece;
 					}
 				}
-				if(board[i][y] == player2.piece){
+				else if(board[i][y] == player2.piece){
 					return count;
 				}
-				if(board[i][y] == ' '){
+				else if(board[i][y] == ' '){
 					return 0;
 				}
 			}
@@ -240,10 +240,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 						board[x][i] = player1.piece;
 					}
 				}
-				if(board[x][i] == player1.piece){
+				else if(board[x][i] == player1.piece){
 					return count;
 				}
-				if(board[x][i] == ' '){
+				else if(board[x][i] == ' '){
 					return 0;
 				}
 			}
@@ -261,10 +261,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 						board[x][i] = player2.piece;
 					}
 				}
-				if(board[x][i] == player2.piece){
+				else if(board[x][i] == player2.piece){
 					return count;
 				}
-				if(board[x][i] == ' '){
+				else if(board[x][i] == ' '){
 					return 0;
 				}
 			}
@@ -286,10 +286,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 						board[i][y] = player1.piece;
 					}
 				}
-				if(board[i][y] == player1.piece){
+				else if(board[i][y] == player1.piece){
 					return count;
 				}
-				if(board[i][y] == ' '){
+				else if(board[i][y] == ' '){
 					return 0;
 				}
 			}
@@ -332,10 +332,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 						board[x][i] = player1.piece;
 					}
 				}
-				if(board[x][i] == player1.piece){
+				else if(board[x][i] == player1.piece){
 					return count;
 				}
-				if(board[x][i] == ' '){
+				else if(board[x][i] == ' '){
 					return 0;
 				}
 			}
@@ -353,10 +353,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 						board[x][i] = player2.piece;
 					}
 				}
-				if(board[x][i] == player2.piece){
+				else if(board[x][i] == player2.piece){
 					return count;
 				}
-				if(board[x][i] == ' '){
+				else if(board[x][i] == ' '){
 					return 0;
 				}
 			}
@@ -377,10 +377,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 						board[i][j] = player1.piece;
 					}
 				}
-				if(board[i][j] == player1.piece){
+				else if(board[i][j] == player1.piece){
 					return count;
 				}
-				if(board[i][j] == ' '){
+				else if(board[i][j] == ' '){
 					return 0;
 				}
 			}
@@ -398,10 +398,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 						board[i][j] = player2.piece;
 					}
 				}
-				if(board[i][j] == player2.piece){
+				else if(board[i][j] == player2.piece){
 					return count;
 				}
-				if(board[i][j] == ' '){
+				else if(board[i][j] == ' '){
 					return 0;
 				}
 			}
@@ -422,10 +422,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 						board[i][j] = player1.piece;
 					}
 				}
-				if(board[i][j] == player1.piece){
+				else if(board[i][j] == player1.piece){
 					return count;
 				}
-				if(board[i][j] == ' '){
+				else if(board[i][j] == ' '){
 					return 0;
 				}
 			}
@@ -443,10 +443,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 						board[i][j] = player2.piece;
 					}
 				}
-				if(board[i][j] == player2.piece){
+				else if(board[i][j] == player2.piece){
 					return count;
 				}
-				if(board[i][j] == ' '){
+				else if(board[i][j] == ' '){
 					return 0;
 				}
 			}
@@ -466,10 +466,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 						board[i][j] = player1.piece;
 					}
 				}
-				if(board[i][j] == player1.piece){
+				else if(board[i][j] == player1.piece){
 					return count;
 				}
-				if(board[i][j] == ' '){
+				else if(board[i][j] == ' '){
 					return 0;
 				}
 			}
@@ -487,10 +487,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 						board[i][j] = player2.piece;
 					}
 				}
-				if(board[i][j] == player2.piece){
+				else if(board[i][j] == player2.piece){
 					return count;
 				}
-				if(board[i][j] == ' '){
+				else if(board[i][j] == ' '){
 					return 0;
 				}
 			}
@@ -510,10 +510,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 						board[i][j] = player1.piece;
 					}
 				}
-				if(board[i][j] == player1.piece){
+				else if(board[i][j] == player1.piece){
 					return count;
 				}
-				if(board[i][j] == ' '){
+				else if(board[i][j] == ' '){
 					return 0;
 				}
 			}
@@ -531,10 +531,10 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 						board[i][j] = player2.piece;
 					}
 				}
-				if(board[i][j] == player2.piece){
+				else if(board[i][j] == player2.piece){
 					return count;
 				}
-				if(board[i][j] == ' '){
+				else if(board[i][j] == ' '){
 					return 0;
 				}
 			}
