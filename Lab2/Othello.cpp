@@ -186,8 +186,8 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 	if(player == player2.name){
 		if(board[x][y] == player1.piece){
 			while((x>=0) && (x<8) && (y>=0) && (y<8)){
-				x+=1;
-				y+=1;
+				x += direction == 1? 1: direction == 2? -1: direction == 3? 0: direction == 4? 1: direction == 5? 1: direction == 6? 1: direction == 7? 0: -1;
+				y+= direction == 1? 0: direction == 2? 1: direction == 3? 1: direction == 4? 1: direction == 5? 0: direction == 6? -1: direction == 7? -1: -1;
 				if(board[x][y] == ''){
 					flipPieces = false;
 				}
@@ -195,15 +195,15 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					flipPieces = true;
 				}
 			}
-			flipPieces = false;
+			flipPieces = true;
 		}
 	}
 
 	if(player == player1.name){
 		if(board[x][y] == player2.piece){
 			while((x>=0) && (x<8) && (y>=0) && (y<8)){
-				x+=1;
-				y+=1;
+				x += direction == 1? 1: direction == 2? -1: direction == 3? 0: direction == 4? 1: direction == 5? 1: direction == 6? 1: direction == 7? 0: -1;
+								y+= direction == 1? 0: direction == 2? 1: direction == 3? 1: direction == 4? 1: direction == 5? 0: direction == 6? -1: direction == 7? -1: -1;
 				if(board[x][y] == ''){
 					flipPieces = false;
 				}
@@ -211,7 +211,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 					flipPieces = true;
 				}
 			}
-			flipPieces = false;
+			flipPieces = true;
 		}
 	}
 
