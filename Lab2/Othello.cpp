@@ -656,11 +656,11 @@ void Othello::playGame(){
 		cout << endl << p.name << " (" << p.piece << ") choose your square: " << endl;
 		if((numPlayer == 2) || ((numPlayer == 1) && turn)){
 			placepiece(p);
-			cout << "\nPlayer placing piece\n" << endl;
+			//cout << "\nPlayer placing piece\n" << endl;
 		}
 		else if((numPlayer == 0) || ((numPlayer == 1) && (turn == false))){
 			compplacepiece(p);
-			cout << "\nComputer placing piece\n" << endl;
+			//cout << "\nComputer placing piece\n" << endl;
 		}
 		turn = !turn;
 		printmat();
