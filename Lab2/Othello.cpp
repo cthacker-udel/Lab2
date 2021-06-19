@@ -413,6 +413,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			if(flipPieces){
 				board[x][y] = player1.piece;
 			}
+			// comment
 			for(int i = x+1, j = y+1; i < size && j < size; j++, i++){
 				if(board[i][j] == player2.piece){
 					count++;
