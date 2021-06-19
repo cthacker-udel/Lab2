@@ -162,6 +162,7 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 	 * flipPieces - boolean if true, turn all opposite player pieces to current player piece
 	 *
 	 */
+<<<<<<< HEAD
 	if(player == player2.name){
 		if(board[x][y] == player1.piece){
 			while((x>=0) && (x<8) && (y>=0) && (y<0)){
@@ -193,6 +194,8 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 			flipPieces = false;
 		}
 	}
+=======
+>>>>>>> branch 'master' of https://github.com/cthacker-udel/Lab2.git
 
 	int count = 0;
 
