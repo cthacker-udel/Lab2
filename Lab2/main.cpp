@@ -2,7 +2,7 @@
 
 int main(void){
 
-	Othello game("Cameron",'B',"Jason",'O');
+	Othello game("Cameron",'B');
 	game.playGame();
 
 

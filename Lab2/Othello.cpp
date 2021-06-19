@@ -132,11 +132,32 @@ void Othello::placepiece(Player p){
 		}
 	}
 	board[x][y] = p.piece;
+	int max = 0;
+	vector<pair<pair<int,int>,pair<int,int>>> coords;
 	for(int i = 1; i < 9; i++){
 		int j = countandflippieces(x,y,p.name,false,i);
-		string direction = i == 1? "up": i == 2? "right-up diag": i == 3? "right": i == 4? "right-down diag": i == 5? "down": i == 6? "left-down diag": i == 7? "left": i == 8? "left-up diag": "neither";
-		cout << "The number of flips found in the " << direction << " direction are : " << j << endl;
+		//string direction = i == 1? "up": i == 2? "right-up diag": i == 3? "right": i == 4? "right-down diag": i == 5? "down": i == 6? "left-down diag": i == 7? "left": i == 8? "left-up diag": "neither";
+		//cout << "The number of flips found in the " << direction << " direction are : " << j << endl;
+		pair<int,int> numFlippedAndDirection;
+		numFlippedAndDirection.first = j;
+		numFlippedAndDirection.second = i;
+		max = fmax(max,j);
+		pair<int,int> xAndY;
+		xAndY.first = x;
+		xAndY.second = y;
+		pair<pair<int,int>,pair<int,int>> pushPair;
+		pushPair.first = numFlippedAndDirection;
+		pushPair.second = xAndY;
+		coords.push_back(pushPair);
 	}
+	vector<pair<pair<int,int>,pair<int,int>>> coordsUpdated;
+	for(int i = 0; i < (int)coords.size(); i++){
+		if(coords.at(i).first.first == max){
+			coordsUpdated.push_back(coords.at(i));
+		}
+	}
+	int randNum = rand() % coordsUpdated.size();
+	countandflippieces(x,y,p.name,true,coordsUpdated.at(randNum).first.second);
 
 }
 
@@ -542,7 +563,7 @@ void Othello::compplacepiece(Player p){
 		}
 	}
 	int max = 0;
-	for(int i = 0; i < coords.size(); i++){
+	for(int i = 0; i < (int)coords.size(); i++){
 		max = fmax(max,coords.at(i).first.second);
 	}
 	if(max == 0){
@@ -550,12 +571,17 @@ void Othello::compplacepiece(Player p){
 	}
 	else{
 		vector<pair<pair<int,int>,pair<int,int>>> validCoords;
-		for(int i = 0; i < coords.size(); i++){
-			if(coords.at(i).first == max){
+		for(int i = 0; i < (int)coords.size(); i++){
+			if(coords.at(i).first.second == max){
 				validCoords.push_back(coords.at(i));
 			}
 		}
 		int randomCoord = rand() % validCoords.size();
+
+		int randomXCoord = validCoords.at(randomCoord).second.first;
+		int randomYCoord = validCoords.at(randomCoord).second.second;
+		cout << "\nRandom coords selected are : " << randomXCoord << "," << randomYCoord << endl;
+
 		countandflippieces(validCoords.at(randomCoord).second.first,validCoords.at(randomCoord).second.second,p.name,true,validCoords.at(randomCoord).first.first);
 	}
 
@@ -583,9 +609,11 @@ void Othello::playGame(){
 		cout << endl << p.name << " (" << p.piece << ") choose your square: " << endl;
 		if((numPlayer == 2) || ((numPlayer == 1) && turn)){
 			placepiece(p);
+			cout << "\nPlayer placing piece\n" << endl;
 		}
 		else if((numPlayer == 0) || ((numPlayer == 1) && (turn == false))){
-			//compplacepiece(p);
+			compplacepiece(p);
+			cout << "\nComputer placing piece\n" << endl;
 		}
 		turn = !turn;
 		printmat();
