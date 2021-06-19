@@ -186,8 +186,8 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 	if(player == player2.name){
 		if(board[x][y] == player1.piece){
 			while((x>=0) && (x<8) && (y>=0) && (y<8)){
-				x+=x;
-				y+=y;
+				x+=1;
+				y+=1;
 				if(board[x][y] == ''){
 					flipPieces = false;
 				}
@@ -202,8 +202,8 @@ int Othello::countandflippieces(int x, int y, string player, bool flipPieces, in
 	if(player == player1.name){
 		if(board[x][y] == player2.piece){
 			while((x>=0) && (x<8) && (y>=0) && (y<8)){
-				x+=x;
-				y+=y;
+				x+=1;
+				y+=1;
 				if(board[x][y] == ''){
 					flipPieces = false;
 				}
