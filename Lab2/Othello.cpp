@@ -26,8 +26,8 @@ Othello::Othello(string playerName, char pieceColor){
 		computerPiece = 'O';
 	}
 
-	Player player1Instance("computer",computerPiece);
-	Player player2Instance(playerName,pieceColor);
+	Player player2Instance("computer",computerPiece);
+	Player player1Instance(playerName,pieceColor);
 	player1 = player1Instance;
 	player2 = player2Instance;
 	numPlayer = 1;
@@ -55,19 +55,15 @@ void Othello::makemat(){
 		for(int j = 0; j < size; j++){
 			//cout << "R middle = " << rMiddle << "\nL middle = " << lMiddle << "\nI = " << i << "\nJ = " << j << "\n\n-----";
 			if(i == lMiddle && j == lMiddle){
-				cout << "\nEntered first if" << endl;
 				board[i][j] = player2.piece;
 			}
 			else if(i == rMiddle && j == lMiddle){
-				cout << "entered second if" << endl;
 				board[i][j] = player1.piece;
 			}
 			else if(i == lMiddle && j == rMiddle){
-				cout << "entered third if" << endl;
 				board[i][j] = player1.piece;
 			}
 			else if(i == rMiddle && j == rMiddle){
-				cout << "entered fourth if" << endl;
 				board[i][j] = player2.piece;
 			}
 			else{
@@ -624,11 +620,44 @@ void Othello::compplacepiece(Player p){
 		}
 		int randomCoord = rand() % validCoords.size();
 
-		int randomXCoord = validCoords.at(randomCoord).second.first;
-		int randomYCoord = validCoords.at(randomCoord).second.second;
-		int randomDirection = validCoords.at(randomCoord).first.first;
-		cout << "\nRandom coords selected are : " << randomXCoord << "," << randomYCoord << " and direction = " << randomDirection << endl;
+		//int randomXCoord = validCoords.at(randomCoord).second.first;
+		//int randomYCoord = validCoords.at(randomCoord).second.second;
+		//int randomDirection = validCoords.at(randomCoord).first.first;
 
+		/*
+		 *
+		 * Computer added "Intelligence" - cycles through all the different max moves, looking for a move that is a diagonal first, then left and right, then up and down last, if no coordinate is selected, by the end, random coordinate is selected
+		 *
+		 */
+
+		/*
+		 *
+		 * Diagonal direction check first
+		 *
+		 */
+
+		for(int i = 0; i < (int)validCoords.size(); i++){
+			int theDirection = validCoords.at(i).first.first;
+			if(theDirection == 2 || theDirection == 4 || theDirection == 6 || theDirection == 8){
+				countandflippieces(validCoords.at(i).second.first,validCoords.at(i).second.second,p.name,true,validCoords.at(i).first.first);
+				return;
+			}
+		}
+		for(int i = 0; i < (int)validCoords.size(); i++){
+			int theDirection = validCoords.at(i).first.first;
+			if(theDirection == 3 || theDirection == 7){
+				countandflippieces(validCoords.at(i).second.first,validCoords.at(i).second.second,p.name,true,validCoords.at(i).first.first);
+				return;
+			}
+		}
+		for(int i = 0; i < (int)validCoords.size(); i++){
+			int theDirection = validCoords.at(i).first.first;
+			if(theDirection == 1 || theDirection == 5){
+				countandflippieces(validCoords.at(i).second.first,validCoords.at(i).second.second,p.name,true,validCoords.at(i).first.first);
+				return;
+			}
+		}
+		//cout << "\nRandom coords selected are : " << randomXCoord << "," << randomYCoord << " and direction = " << randomDirection << endl;
 		countandflippieces(validCoords.at(randomCoord).second.first,validCoords.at(randomCoord).second.second,p.name,true,validCoords.at(randomCoord).first.first);
 	}
 
